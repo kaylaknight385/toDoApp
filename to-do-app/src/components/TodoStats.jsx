@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTodos } from '../contexts/TodoContext';
+import { useTodos } from '../context/TodoContext';
 
 // shows stats about your todos and lets you clear completed ones
 export function TodoStats() {

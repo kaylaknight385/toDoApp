@@ -1,7 +1,7 @@
 import React from 'react';
-import { TodoProvider } from './contexts/TodoContext';
-import { FilterProvider } from './contexts/FilterContext';
-import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import { TodoProvider } from './context/TodoContext';
+import { FilterProvider } from './context/FilterContext';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { TodoInput } from './components/TodoInput';
 import { TodoList } from './components/TodoList';
 import { FilterButtons } from './components/FilterButtons';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 
 // button to switch between light and dark mode
 export function ThemeToggleButton() {
@@ -7,7 +7,7 @@ export function ThemeToggleButton() {
 
   return (
     <button onClick={toggleTheme} className="theme-toggle">
-      {theme === 'light' ? ' Cold Mode' : 'Light Mode'}
+      {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
     </button>
   );
 }

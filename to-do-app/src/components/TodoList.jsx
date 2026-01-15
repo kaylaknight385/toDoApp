@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTodos } from '../contexts/TodoContext';
-import { useFilter } from '../contexts/FilterContext';
+import { useTodos } from '../context/TodoContext';
+import { useFilter } from '../context/FilterContext';
 import { TodoItem } from './TodoItem';
 
 // displays the list of todos based on current filter

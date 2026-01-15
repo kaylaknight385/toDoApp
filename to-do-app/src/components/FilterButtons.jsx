@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFilter } from '../contexts/FilterContext';
+import { useFilter } from '../context/FilterContext';
 
 // the three buttons to switch between all/active/completed views
 export function FilterButtons() {

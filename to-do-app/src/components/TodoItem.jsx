@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTodos } from '../contexts/TodoContext';
+import { useTodos } from '../context/TodoContext';
 
 // individual todo item with checkbox, edit, and delete
 export function TodoItem({ todo }) {

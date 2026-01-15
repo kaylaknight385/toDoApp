@@ -1,68 +1,343 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* custom fonts for seasonal vibes */
+@font-face {
+  font-family: 'Melt-Swashes';
+  src: url('./assets/Melt-Swashes.ttf') format('truetype'),
+       url('./assets/Melt-Swashes.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@font-face {
+  font-family: 'White Storm';
+  src: url('./assets/White Storm.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
-a:hover {
-  color: #535bf2;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+}
+
+/* Theme Variables */
+/* summer vibessss */
+.app.light {
+  --bg-primary: #fff9e6;
+  --bg-secondary: rgba(255, 255, 255, 0.85);
+  --text-primary: #2c1810;
+  --text-secondary: #8b6f47;
+  --border-color: #ffd89b;
+  --button-bg: #ff9a56;
+  --button-hover: #ff7f3f;
+  --danger-bg: #ff6b6b;
+  --danger-hover: #ee5a52;
+  --success-bg: #51cf66;
+  --completed-text: #a8a29e;
+  background-image: url('./assets/summer.gif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.app.light,
+.app.light * {
+  font-family: 'Melt-Swashes', cursive, sans-serif;
+}
+
+/* winter vibezzz */
+.app.dark {
+  --bg-primary: #0f1419;
+  --bg-secondary: rgba(30, 41, 59, 0.85);
+  --text-primary: #e0f2fe;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --button-bg: #3b82f6;
+  --button-hover: #2563eb;
+  --danger-bg: #6366f1;
+  --danger-hover: #4f46e5;
+  --success-bg: #06b6d4;
+  --completed-text: #e0e0e2;
+  background-image: url('./assets/winter.gif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.app.dark,
+.app.dark * {
+  font-family: 'White Storm', sans-serif;
+  font-size: 1.1em;
+}
+
+.app {
   min-height: 100vh;
+  color: var(--text-primary);
+  padding: 2rem;
+  transition: all 0.5s ease;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-button {
+/* header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+}
+
+/* theme Toggle */
+.theme-toggle {
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.theme-toggle:hover {
+  border-color: var(--button-bg);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* todo input */
+.todo-input-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+.add-button {
+  padding: 1rem 1.5rem;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.add-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* filter buttons */
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-button {
+  flex: 1;
+  padding: 0.75rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.filter-button:hover {
+  border-color: var(--button-bg);
+}
+
+.filter-button.active {
+  background-color: var(--button-bg);
+  color: white;
+  border-color: var(--button-bg);
+  font-weight: 600;
+}
+
+/* todo list */
+.todo-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+/* todo item */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.todo-item:hover {
+  border-color: var(--button-bg);
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--completed-text);
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-edit-input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid var(--button-bg);
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.todo-edit-input:focus {
+  outline: none;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.edit-button {
+  background-color: var(--success-bg);
+  color: white;
+}
+
+.edit-button:hover {
+  opacity: 0.8;
+}
+
+.delete-button {
+  background-color: var(--danger-bg);
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: var(--danger-hover);
+}
+
+/* todo stats */
+.todo-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.stats-info {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.separator {
+  color: var(--border-color);
+}
+
+.clear-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--danger-bg);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.clear-button:hover {
+  background-color: var(--danger-hover);
 }

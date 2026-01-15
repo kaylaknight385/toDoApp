@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTodos } from '../contexts/TodoContext';
+import { useTodos } from '../context/TodoContext';
 
 // the input box where you type new todos
 export function TodoInput() {
